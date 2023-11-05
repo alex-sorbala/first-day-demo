@@ -2,9 +2,11 @@
 var ExtensionId = "jnkehcgpmjanaaigkjmgegnkfgomhhlg";
 
 
-(async () => {
-  console.log("test");
-    const response = await chrome.runtime.sendMessage(ExtensionId, {greeting: "hello"});
-    // do something with response here, not outside the function
-    console.log(response);
-  })();
+console.log("test");
+chrome.runtime.sendMessage(ExtensionId, {greeting: "hello"}, (response) => {
+  // 3. Got an asynchronous response with the data from the service worker
+  console.log('received user data', response);
+});
+
+
+  
