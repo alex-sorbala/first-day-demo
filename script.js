@@ -1,14 +1,10 @@
-fetch("http://oldfunshinyjoke.neverssl.com/online/", 
-{ 
-    mode: 'no-cors',
-    referrer: "",
-    referrerPolicy: "no-referrer",
-    redirect: "follow"
-}
-)
-.then((response)=>{
-    return response.text();
-})
-.then((data)=>{
-    console.log(data);
-})
+// The ID of the extension we want to talk to.
+var ExtensionId = "jnkehcgpmjanaaigkjmgegnkfgomhhlg";
+
+
+(async () => {
+  console.log("test");
+    const response = await chrome.runtime.sendMessage(ExtensionId, {greeting: "hello"});
+    // do something with response here, not outside the function
+    console.log(response);
+  })();
